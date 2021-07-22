@@ -32,7 +32,7 @@ export async function getStaticProps({ params }) {
 // It may be called again, on a serverless function, if
 // the path has not been generated.
 export async function getStaticPaths() {
-  const res = await fetch(`${config.URL}/productAll`, {
+  const res = await fetch(`https://prisma-shop.herokuapp.com/v1/productAll`, {
     method: "GET",
     redirect: "follow",
   });
