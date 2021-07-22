@@ -28,7 +28,6 @@ const MainLayout = ({ children }) => {
         </div>
       </nav>
       <motion.main
-        style={{ paddingTop: 100 }}
         variants={variants} // Pass the variant object into Framer Motion
         initial="hidden" // Set the initial state to variants.hidden
         animate="enter" // Animated state to variants.enter
