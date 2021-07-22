@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+html,
+body,
+*,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+$main: #fc9803;
+
+.container {
+  width: 1200px;
+  margin: auto;
+  @media screen and (max-width: 1200px) {
+    width: 100%;
+    padding: 0 10px;
+    overflow: hidden;
+  }
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 70px;
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      .logo-icon {
+        font-size: 30px;
+        color: $main;
+        @media screen and (max-width: 500px) {
+          font-size: 20px;
+        }
+      }
+      h1 {
+        margin-left: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        color: $main;
+        @media screen and (max-width: 500px) {
+          font-size: 20px;
+        }
+      }
+    }
+    .menu {
+      .login-btn {
+        margin-right: 10px;
+        border-radius: 20px;
+      }
+      .signup-btn {
+        border-radius: 20px;
+      }
+    }
+  }
+}
+.slider {
+  background-color: #fff;
+  position: relative;
+  height: calc(100vh - 100px);
+  @media screen and (max-width: 770px) {
+    height: 100%;
+  }
+  .carusel-image {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    @media screen and (max-width: 770px) {
+      height: unset;
+    }
+    // animation: beat 10s ease-in-out infinite;
+    // animation-fill-mode: forwards;
+  }
+  .slider-overlay {
+    padding-bottom: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    z-index: 2;
+
+    .container {
+      display: flex;
+      align-items: flex-end;
+
+      height: 100%;
+      h1 {
+        color: $main;
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 1em;
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        @media screen and (max-width: 500px) {
+          font-size: 2em;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes beat {
+  0% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.home {
+  height: calc(100vh - 100px);
+  display: flex;
+  @media screen and (max-width: 770px) {
+    flex-direction: column-reverse;
+  }
+
+  .left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @media screen and (max-width: 770px) {
+      align-items: center;
+      padding-bottom: 20px;
+    }
+    .hero-type {
+      font-size: 30px;
+      @media screen and (max-width: 770px) {
+        text-align: center;
+      }
+    }
+    .color {
+      display: flex;
+      height: 60px;
+      align-items: center;
+      margin-bottom: 20px;
+      @media screen and (max-width: 770px) {
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 60px;
+        color: $main;
+      }
+      .hero-type-main-color {
+        margin: 0 5px;
+        font-weight: bold;
+      }
+    }
+    .hero-type-p {
+      @media screen and (max-width: 770px) {
+        text-align: center;
+        width: 80%;
+
+        margin: auto;
+        margin-bottom: 20px;
+      }
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+    .cta {
+      max-width: 220px;
+      border-radius: 30px;
+      flex-direction: row;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cta-icon {
+      margin: 0 5px;
+      font-size: 20px;
+    }
+  }
+  .right {
+    flex: 2;
+    max-height: calc(100vh - 100px);
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.carousel-root {
+  max-height: calc(100vh - 100px);
+  @media screen and (max-width: 770px) {
+    height: 40vh;
+  }
+  .carousel {
+    height: 100%;
+  }
+}
+
+.slider-wrapper {
+  height: 100%;
+}
+
+.products {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  padding-bottom: 40px;
+  @media screen and (max-width: 430px) {
+    padding: 30px;
+  }
+
+  .product {
+    position: relative;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    &:hover {
+      padding: 0px;
+      transform: scale(1.2);
+      z-index: 10;
+
+      img {
+        height: calc(100% - 10px);
+      }
+      .card-type {
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        margin-top: 0px;
+        padding: 0px;
+      }
+    }
+    img {
+      height: 50%;
+      width: 90%;
+      object-fit: cover;
+      border-radius: 10px;
+      background-color: #eee;
+      transition: all 0.3s ease-in-out;
+      margin: 10px;
+    }
+    .skeleton-image {
+      border-radius: 10px;
+      height: 50%;
+      width: 90%;
+      background-color: #eee;
+      margin: 10px;
+    }
+    .card-type {
+      margin-top: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.09);
+      flex: 1;
+      height: calc(50% - 20px);
+      background-color: #fff;
+      padding: 5px 10px;
+      transition: all 0.3s ease-in-out;
+      .card-name {
+        font-weight: bold;
+        color: $main;
+      }
+    }
+  }
+}
+
+.expanded-card {
+  position: fixed;
+  top: 100px;
+  left: 4vw;
+  right: 4vw;
+  bottom: 0;
+  height: 80vh;
+  z-index: 110;
+  background-color: #fff;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+
+  img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+}
