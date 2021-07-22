@@ -40,7 +40,7 @@ export async function getStaticPaths() {
   const posts = await res.json();
 
   const paths = posts.data.map((post) => ({
-    params: { id: post.id },
+    params: { id: post.id.toString() },
   }));
 
   return { paths, fallback: "blocking" };
