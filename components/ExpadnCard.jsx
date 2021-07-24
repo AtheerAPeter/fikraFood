@@ -37,7 +37,6 @@ function ExpandCard({ product, setIsOpen }) {
     <AnimateSharedLayout>
       {open ? (
         <motion.div className="expanded-card" layoutId="expandable-card">
-          {/* <div className="blur"></div> */}
           <motion.img
             className="expanded-card-image"
             layoutId={product.id}
@@ -79,11 +78,6 @@ function ExpandCard({ product, setIsOpen }) {
           initial="rest"
           whileHover="hover"
           animate="rest"
-          // whileHover={{
-          //   scale: 1.1,
-          //   transition: { duration: 0.3, zIndex: 1000 },
-          // }}
-          // whileTap={{ scale: 0.9 }}
           variants={containerMotion}
           onClick={() => setOpen(true)}
           className="normal-card"
@@ -91,10 +85,6 @@ function ExpandCard({ product, setIsOpen }) {
         >
           <motion.img
             variants={imageMotion}
-            // whileHover={{
-            //   scale: 1.2,
-            //   transition: { duration: 0.5, zIndex: 1000, ease: "easeInOut" },
-            // }}
             className="normal-card-image"
             layoutId={product.id}
             src={product.image}

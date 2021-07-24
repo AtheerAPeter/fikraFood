@@ -72,6 +72,14 @@ nav {
         border-radius: 20px;
       }
     }
+    .user {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      h2 {
+        margin-right: 10px;
+      }
+    }
   }
 }
 .slider {
@@ -608,5 +616,42 @@ nav {
         }
       }
     }
+  }
+}
+
+.login {
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .underlay {
+    z-index: -1;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    img {
+      height: 60vh;
+      position: absolute;
+      @media screen and (max-width: 870px) {
+        height: 50vh;
+      }
+    }
+    .first-image {
+      left: -150px;
+      top: -100px;
+    }
+    .second-image {
+      right: -100px;
+      bottom: -100px;
+    }
+  }
+
+  .form {
+    width: 300px;
   }
 }

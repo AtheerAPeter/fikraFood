@@ -1,9 +1,9 @@
 import "../styles/result.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../styles/globals.scss";
 import Router from "next/router";
 import ProgressBar from "@badrap/bar-of-progress";
-import { AnimateSharedLayout, motion } from "framer-motion";
+import { AnimateSharedLayout } from "framer-motion";
 
 const progress = new ProgressBar({
   size: 3,
