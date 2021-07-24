@@ -17,7 +17,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    getData();
+    // getData();
   }, []);
 
   const getData = async () => {
@@ -63,7 +63,8 @@ export default function Home() {
           </div>
 
           <div className="right">
-            <Carousel
+            <img layout="fill" src={"/images/hero.png"} />
+            {/* <Carousel
               showThumbs={false}
               showIndicators={false}
               autoplay={true}
@@ -82,7 +83,7 @@ export default function Home() {
                     </div>
                   );
                 })}
-            </Carousel>
+            </Carousel> */}
           </div>
         </div>
       </div>

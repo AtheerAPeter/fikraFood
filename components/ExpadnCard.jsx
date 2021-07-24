@@ -37,39 +37,41 @@ function ExpandCard({ product, setIsOpen }) {
     <AnimateSharedLayout>
       {open ? (
         <motion.div className="expanded-card" layoutId="expandable-card">
-          <div className="blur"></div>
-          <motion.div className="overlay-content container">
+          {/* <div className="blur"></div> */}
+          <motion.img
+            className="expanded-card-image"
+            layoutId={product.id}
+            src={product.image}
+            alt=""
+          />
+          <motion.h1
+            className="expanded-card-price"
+            layoutId="expandable-card-price"
+          >
+            {numberWithCommas(product.price)}
+            {product.currency}
+          </motion.h1>
+          <motion.div className="container">
             <Button
               onClick={() => setOpen(false)}
               className="close-btn"
-              icon={<LeftOutlined style={{ fontSize: "2em" }} />}
-              type="link"
+              icon={<LeftOutlined style={{ fontSize: "1em" }} />}
+              type="primary"
             />
-            <motion.img
-              className="expanded-card-image"
-              layoutId={product.id}
-              src={product.image}
-              alt=""
-            />
-            <div className="name-price">
-              <motion.h1
-                className="expanded-card-h"
-                layoutId="expandable-card-h"
-              >
-                {product.name}
-              </motion.h1>
-              <motion.h1
-                className="expanded-card-price"
-                layoutId="expandable-card-price"
-              >
-                {numberWithCommas(product.price)}
-                {product.currency}
-              </motion.h1>
+            <div className="expanded-card-content">
+              <div className="name-price">
+                <motion.h1
+                  className="expanded-card-h"
+                  layoutId="expandable-card-h"
+                >
+                  {product.name}
+                </motion.h1>
+              </div>
+              <p className="description">{product.description}</p>
+              <Button size="large" type="primary" className="button">
+                Add To Cart
+              </Button>
             </div>
-            <p className="description">{product.description}</p>
-            <Button type="link" className="button">
-              Add To Cart <AiOutlineArrowRight />
-            </Button>
           </motion.div>
         </motion.div>
       ) : (

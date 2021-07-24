@@ -3,7 +3,7 @@ import { Button } from "antd";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const MainLayout = ({ children, hidden }) => {
+const MainLayout = ({ children, hidden, filled }) => {
   const variants = {
     hidden: { opacity: 0, x: -200, y: 0 },
     enter: { opacity: 1, x: 0, y: 0 },
@@ -12,7 +12,7 @@ const MainLayout = ({ children, hidden }) => {
   return (
     <>
       {hidden ? null : (
-        <nav>
+        <nav style={{ backgroundColor: filled ? "#fff" : "transparent" }}>
           <div className="container">
             <Link href="/">
               <div className="logo">
