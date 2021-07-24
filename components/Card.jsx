@@ -11,20 +11,32 @@ export default function Card({ product }) {
 
   return (
     <>
-      <motion.div
-        key={product.id}
-        onClick={() => router.push(`/products/${product.id}`)}
-        className={"product"}
-      >
-        <motion.img layoutId={product.id} src={product.image} alt="" />
-        <div className="card-type">
-          <p className="card-name">{product.name}</p>
-          <span className="card-price-wrapper">
-            <p className="card-price">{numberWithCommas(product.price)}</p>
-            <p className={"card-currency"}>{product.currency}</p>
-          </span>
-        </div>
-      </motion.div>
+      {open ? (
+        <motion.div
+          onClick={() => setOpen(false)}
+          className="expanded-card"
+          layoutId="expandable-card"
+        >
+          <motion.h2
+            className="expanded-card-h"
+            layoutId="expandable-card-h"
+          ></motion.h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+            aliquam molestiae ratione sint magnam sequi fugiat u llam earum
+            distinctio fuga iure, ad odit repudiandae modi est alias ipsum
+            aperiam. Culpa?
+          </p>
+        </motion.div>
+      ) : (
+        <motion.div
+          onClick={() => setOpen(true)}
+          className="normal-card"
+          layoutId="expandable-card"
+        >
+          <motion.h1 layoutId="expandable-card-h">hi</motion.h1>
+        </motion.div>
+      )}
     </>
   );
 }
