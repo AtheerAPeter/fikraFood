@@ -1,0 +1,21 @@
+{
+  "name": "Fikra Food",
+  "short_name": "FikraFood",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#fc9803",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
