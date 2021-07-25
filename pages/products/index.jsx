@@ -22,6 +22,7 @@ export default function Products() {
 
     const data = await res.json();
     if (data) {
+      setData(null);
       setData(data.data.products);
       setCount(data.data.count);
     }
@@ -33,7 +34,6 @@ export default function Products() {
       filled
       paginationCount={count}
       onChangePagination={(page) => {
-        setData(null);
         getData(page);
       }}
     >
