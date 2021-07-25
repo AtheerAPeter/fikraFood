@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Cookies from "js-cookie";
 import router from "next/router";
 import { useState, useEffect } from "react";
+import BackBtn from "../components/BackBtn";
 function login() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
@@ -46,6 +47,7 @@ function login() {
   };
   return !isLoggedIn ? (
     <div className="login">
+      <BackBtn />
       <div className="underlay">
         <motion.img
           variants={{

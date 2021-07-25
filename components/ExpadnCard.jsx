@@ -17,6 +17,7 @@ function ExpandCard({ product, setIsOpen }) {
   const imageMotion = {
     rest: {
       scale: 1,
+      transition: { duration: 0.5, zIndex: 1000, ease: "easeInOut" },
     },
     hover: {
       scale: 1.1,
@@ -26,6 +27,7 @@ function ExpandCard({ product, setIsOpen }) {
   const containerMotion = {
     rest: {
       scale: 1,
+      transition: { duration: 0.5, zIndex: 1000, ease: "easeInOut" },
     },
     hover: {
       scale: 1.05,

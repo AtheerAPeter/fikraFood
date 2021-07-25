@@ -329,82 +329,6 @@ nav {
   }
 }
 
-.single-product {
-  position: relative;
-  .sp-image {
-    height: 100vh;
-    width: 100%;
-    object-fit: cover;
-  }
-  .overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    background: rgb(255, 255, 255);
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(0, 0, 0, 0.6124824929971988) 99%
-    );
-    .container {
-      padding-bottom: 40px;
-      padding-top: 100px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      .name-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        h1 {
-          font-size: 5em;
-          font-weight: bold;
-          color: #fff;
-          @media screen and (max-width: 720px) {
-            font-size: 3em;
-          }
-          @media screen and (max-width: 500px) {
-            font-size: 2em;
-          }
-        }
-        .price {
-          color: #fff;
-          font-size: 2em;
-          @media screen and (max-width: 500px) {
-            font-size: 1.2em;
-          }
-        }
-      }
-      p {
-        color: #fff;
-        font-weight: 400;
-        font-size: 1.2em;
-        @media screen and (max-width: 720px) {
-          font-size: 1em;
-        }
-      }
-      .button {
-        margin-top: 20px;
-        width: 220;
-        display: flex;
-        align-items: center;
-        color: $main;
-        justify-content: space-between;
-        font-size: 2em;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        align-self: flex-end;
-        &:hover {
-          filter: brightness(1.5);
-        }
-      }
-    }
-  }
-}
-
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -571,6 +495,7 @@ nav {
         cursor: pointer;
         transition: all 0.3s ease-in-out;
         align-self: flex-end;
+
         @media screen and (max-width: 500px) {
           width: 100%;
         }
@@ -711,4 +636,15 @@ nav {
 
 .paddingTop {
   padding-top: 20px;
+}
+
+.back-btn {
+  display: none;
+  @media screen and (max-width: 700px) {
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: block;
+  }
 }
