@@ -15,6 +15,10 @@ p {
   font-family: "Lato", sans-serif;
 }
 
+body {
+  touch-action: none;
+}
+
 $main: #fc9803;
 $text: #595959;
 
@@ -578,6 +582,8 @@ nav {
 .masonry {
   padding-top: 20px;
   padding-bottom: 20px;
+  height: 100%;
+  overflow: hidden;
   .normal-card {
     overflow: hidden;
     position: relative;
@@ -676,7 +682,7 @@ nav {
 
 .scroll-conteol {
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 .arrowDown {
   display: flex;
