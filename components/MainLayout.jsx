@@ -3,8 +3,15 @@ import { Button, Avatar, Popover, button } from "antd";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
+import { Pagination } from "antd";
 
-const MainLayout = ({ children, hidden, filled }) => {
+const MainLayout = ({
+  children,
+  hidden,
+  filled,
+  paginationCount,
+  onChangePagination,
+}) => {
   const [user, setUser] = useState();
   useEffect(() => {
     getAndSet();
@@ -71,6 +78,16 @@ const MainLayout = ({ children, hidden, filled }) => {
       )}
 
       <div>{children}</div>
+      {paginationCount && (
+        <div className="pagination-wrapper">
+          <Pagination
+            pageSize={10}
+            defaultCurrent={1}
+            total={paginationCount}
+            onChange={onChangePagination}
+          />
+        </div>
+      )}
     </>
   );
 };
