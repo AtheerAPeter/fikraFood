@@ -17,12 +17,7 @@ export default function Products() {
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
-  const scrollref = useRef(null);
   const [searchQuery] = useDebounce(query, 1000);
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   const getData = async (page = 1, q = "") => {
     if (hasMore || !!q.length) {
@@ -35,6 +30,7 @@ export default function Products() {
       );
 
       const data = await res.json();
+
       if (data) {
         setLoading(false);
         if (!!q?.length) {
@@ -54,7 +50,10 @@ export default function Products() {
   const handleScroll = (e) => {
     const bottom =
       e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-    if (bottom) loadNextPage();
+    if (bottom) {
+      console.log("bottom");
+      loadNextPage();
+    }
   };
 
   const loadNextPage = () => {
@@ -72,22 +71,14 @@ export default function Products() {
   }, [searchQuery]);
 
   return (
-    <div
-      className="scroll-conteol"
-      ref={scrollref}
-      onScroll={handleScroll}
-      onScrollCapture={(e) => console.log(e)}
-    >
+    <div className="scroll-conteol" onScroll={handleScroll}>
       <MainLayout hidden={isOpen} filled>
         <div className="container">
           <div className="search-wrapper">
             <Search
               value={query}
               onChange={(e) => {
-                // setData([]);
-                // getData(1, e.target.value);
                 setQuery(e.target.value);
-                // if (!e.target.value.length > 0) clearSearch();
               }}
               size="large"
               placeholder="search dishes"
