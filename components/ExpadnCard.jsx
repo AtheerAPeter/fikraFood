@@ -5,7 +5,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { Button } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
 function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 function ExpandCard({ product, setIsOpen }) {
   const [open, setOpen] = useState(false);
