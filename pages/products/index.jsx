@@ -5,7 +5,7 @@ import Card from "../../components/Card";
 import SkeletonCard from "../../components/SkeletonCard";
 import ExpandCard from "../../components/ExpadnCard";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { message, Input, Button } from "antd";
+import { message, Input, Button, Spin } from "antd";
 import { BsChevronDoubleDown } from "react-icons/bs";
 const { Search } = Input;
 import { useDebounce } from "use-debounce";
@@ -103,10 +103,16 @@ export default function Products() {
                 </Masonry>
               </ResponsiveMasonry>
               {hasMore && !!!searchQuery ? (
-                <div className="arrowDown" onClick={loadNextPage}>
-                  <p>More</p>
-                  <BsChevronDoubleDown />
-                </div>
+                loading ? (
+                  <div className="spin" onClick={loadNextPage}>
+                    <Spin />
+                  </div>
+                ) : (
+                  <div className="arrowDown" onClick={loadNextPage}>
+                    <p>More</p>
+                    <BsChevronDoubleDown />
+                  </div>
+                )
               ) : !!searchQuery ? null : (
                 <div className="arrowDown nomore" onClick={loadNextPage}>
                   <p>No more dishes to show</p>

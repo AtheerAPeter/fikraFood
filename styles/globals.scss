@@ -648,3 +648,13 @@ nav {
     display: block;
   }
 }
+.spin {
+  position: foxed;
+  left: 0;
+  right: 0;
+  height: 70px;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
