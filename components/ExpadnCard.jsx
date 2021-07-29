@@ -37,7 +37,7 @@ function ExpandCard({ product, setIsOpen }) {
   };
 
   return (
-    <AnimateSharedLayout>
+    <AnimateSharedLayout type="switch">
       {open ? (
         <motion.div className="expanded-card" layoutId="expandable-card">
           <motion.img
@@ -52,7 +52,20 @@ function ExpandCard({ product, setIsOpen }) {
           >
             {numberWithCommas(product.price)}
             {product.currency}
+            <motion.div
+              layoutId="expandable-card-stars"
+              className="rating-container-expand"
+            >
+              <Rate
+                style={{ color: "#fff" }}
+                character={(e) => <StarFilled className="single-star" />}
+                className="stars"
+                disabled
+                value={product.rating}
+              />
+            </motion.div>
           </motion.h1>
+
           <motion.div className="container">
             <Button
               onClick={() => setOpen(false)}
@@ -69,6 +82,7 @@ function ExpandCard({ product, setIsOpen }) {
                   {product.name}
                 </motion.h1>
               </div>
+
               <p className="description">{product.description}</p>
               <Button size="large" type="primary" className="button">
                 Add To Cart
@@ -98,18 +112,20 @@ function ExpandCard({ product, setIsOpen }) {
               {product.name}
             </motion.p>
 
-            {product.rating && (
-              <motion.div className="rating-container">
-                <Rate
-                  style={{ color: "#fc9803" }}
-                  character={(e) => <StarFilled className="single-star" />}
-                  className="stars"
-                  disabled
-                  value={product.rating}
-                />
-                <p>({product.rating})</p>
-              </motion.div>
-            )}
+            <motion.div
+              layoutId="expandable-card-stars"
+              className="rating-container"
+            >
+              <Rate
+                style={{ color: "#fc9803" }}
+                character={(e) => <StarFilled className="single-star" />}
+                className="stars"
+                disabled
+                value={product.rating}
+              />
+              <motion.p>({product.rating})</motion.p>
+            </motion.div>
+
             <motion.span className="card-price-wrapper">
               <motion.p className="card-price" layoutId="expandable-card-price">
                 {numberWithCommas(product.price)}
