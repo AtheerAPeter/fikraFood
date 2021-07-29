@@ -101,6 +101,7 @@ function ExpandCard({ product, setIsOpen }) {
             {product.rating && (
               <motion.div className="rating-container">
                 <Rate
+                  style={{ color: "#fc9803" }}
                   character={(e) => <StarFilled className="single-star" />}
                   className="stars"
                   disabled
