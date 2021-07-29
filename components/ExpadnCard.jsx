@@ -3,7 +3,7 @@ import { motion, AnimateSharedLayout } from "framer-motion";
 import router from "next/router";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Button, Rate } from "antd";
-import { LeftOutlined } from "@ant-design/icons";
+import { LeftOutlined, StarFilled } from "@ant-design/icons";
 function numberWithCommas(x) {
   return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -99,10 +99,15 @@ function ExpandCard({ product, setIsOpen }) {
             </motion.p>
 
             {product.rating && (
-              <div className="rating-container">
-                <Rate className="stars" disabled value={product.rating} />
+              <motion.div className="rating-container">
+                <Rate
+                  character={(e) => <StarFilled className="single-star" />}
+                  className="stars"
+                  disabled
+                  value={product.rating}
+                />
                 <p>({product.rating})</p>
-              </div>
+              </motion.div>
             )}
             <motion.span className="card-price-wrapper">
               <motion.p className="card-price" layoutId="expandable-card-price">

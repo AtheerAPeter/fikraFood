@@ -21,6 +21,7 @@ body {
 
 $main: #fc9803;
 $text: #595959;
+$grayText: #a0a0a0;
 
 .container {
   width: 1200px;
@@ -549,10 +550,22 @@ nav {
       .rating-container {
         display: flex;
         align-items: center;
+        .single-star {
+          @media screen and (max-width: 400px) {
+            font-size: 15px;
+          }
+        }
+        .stars {
+        }
         p {
           margin: 0;
           margin-left: 5px;
-          font-weight: 300;
+          font-weight: 400;
+          margin-bottom: -2px;
+          color: $grayText;
+          @media screen and (max-width: 400px) {
+            font-size: 12px;
+          }
         }
       }
       .h1 {
