@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import router from "next/router";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import { Button } from "antd";
+import { Button, Rate } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
 function numberWithCommas(x) {
   return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 function ExpandCard({ product, setIsOpen }) {
+  console.log(product);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -96,6 +97,13 @@ function ExpandCard({ product, setIsOpen }) {
             <motion.p layoutId="expandable-card-h" className="h1">
               {product.name}
             </motion.p>
+
+            {product.rating && (
+              <div className="rating-container">
+                <Rate className="stars" disabled value={product.rating} />
+                <p>({product.rating})</p>
+              </div>
+            )}
             <motion.span className="card-price-wrapper">
               <motion.p className="card-price" layoutId="expandable-card-price">
                 {numberWithCommas(product.price)}

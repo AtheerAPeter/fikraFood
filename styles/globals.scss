@@ -213,9 +213,18 @@ nav {
   .right {
     flex: 2;
     max-height: calc(100vh - 100px);
-
-    img {
-      width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .blob {
+      position: absolute;
+      z-index: 1;
+      width: 90%;
+    }
+    .hero-image {
+      z-index: 2;
+      width: 80%;
     }
   }
 }
@@ -340,13 +349,13 @@ nav {
   .normal-card {
     position: relative;
     cursor: pointer;
-    height: 280px;
-    display: grid;
+
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #fff;
     text-align: center;
 
@@ -363,14 +372,17 @@ nav {
       width: 80%;
       bottom: 20px;
       background-color: #fff;
-      position: absolute;
+
       border-radius: 10px;
+      display: flex;
+
       .h1 {
         color: $main;
         font-size: 1.2em;
         font-weight: bold;
         margin: 10px 0;
       }
+
       .card-price-wrapper {
         display: flex;
         align-items: center;
@@ -530,6 +542,19 @@ nav {
       bottom: 5px;
       border-radius: 10px;
       padding: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .rating-container {
+        display: flex;
+        align-items: center;
+        p {
+          margin: 0;
+          margin-left: 5px;
+          font-weight: 300;
+        }
+      }
       .h1 {
         text-align: center;
         color: $main;

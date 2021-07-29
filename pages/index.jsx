@@ -63,7 +63,8 @@ export default function Home() {
           </div>
 
           <div className="right">
-            <img layout="fill" src={"/images/hero.png"} />
+            <img src={"/images/blob.svg"} className="blob" />
+            <img src={"/images/hero.png"} className="hero-image" />
             {/* <Carousel
               showThumbs={false}
               showIndicators={false}
