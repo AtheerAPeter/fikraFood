@@ -68,9 +68,11 @@ const MainLayout = ({
                 <Link href="/login">
                   <Button className="login-btn">LOGIN</Button>
                 </Link>
-                <Button className="signup-btn" type="primary">
-                  SIGN UP
-                </Button>
+                <Link href="/signup">
+                  <Button className="signup-btn" type="primary">
+                    SIGN UP
+                  </Button>
+                </Link>
               </div>
             )}
           </div>

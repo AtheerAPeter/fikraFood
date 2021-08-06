@@ -6,7 +6,8 @@ import router from "next/router";
 import { useState, useEffect } from "react";
 import BackBtn from "../components/BackBtn";
 import { config } from "../config";
-function login() {
+
+function Signup() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
@@ -21,9 +22,10 @@ function login() {
     router.push("/");
   };
   const [loading, setLoading] = useState(false);
+
   const onFinish = (values) => {
     setLoading(true);
-    fetch(`${config.URL}/user/login`, {
+    fetch(`${config.URL}/user/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
@@ -32,9 +34,9 @@ function login() {
       .then((response) => response.json())
       .then((result) => {
         setLoading(false);
-        console.log(result);
+
         if (!result.status) {
-          return message.error("Invalid Credentials");
+          return message.error("Error Occured");
         }
 
         Cookies.set("token", result.data.token);
@@ -54,19 +56,19 @@ function login() {
         <motion.img
           variants={{
             visible: { x: 0, y: 0 },
-            hidden: { x: "-100%", y: "-100%" },
+            hidden: { x: "100%", y: "-100%" },
           }}
           initial="hidden"
           animate="visible"
           transition={{ ease: "easeInOut", duration: 2, type: "spring" }}
-          className="first-image"
+          className="first-image-signup"
           src="/images/hero.png"
           alt=""
         />
         <motion.img
           variants={{
             visible: { x: 0, y: 0 },
-            hidden: { x: "100%", y: "100%" },
+            hidden: { x: "-100%", y: "100%" },
           }}
           initial="hidden"
           animate="visible"
@@ -76,7 +78,7 @@ function login() {
             type: "spring",
             delay: 1,
           }}
-          className="second-image"
+          className="second-image-signup"
           src="/images/hero3.png"
           alt=""
         />
@@ -91,13 +93,25 @@ function login() {
         transition={{ ease: "easeInOut", duration: 1, delay: 1 }}
         className="form-container"
       >
-        <h3 className="form-title">Login With Your Account</h3>
+        <h3 className="form-title">Create a New Account</h3>
         <Form
           className="form"
           name="basic"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
+          <p>Username</p>
+          <Form.Item
+            name="name"
+            rules={[
+              {
+                required: true,
+                message: "Please input your Username!",
+              },
+            ]}
+          >
+            <Input size="large" placeholder="john doe" />
+          </Form.Item>
           <p>Email</p>
           <Form.Item
             name="email"
@@ -132,16 +146,16 @@ function login() {
               type="primary"
               htmlType="submit"
             >
-              Login
+              Sign Up
             </Button>
           </Form.Item>
         </Form>
         <p className="signup-link">
-          Don't have an account? <Link href="/signup">Signup</Link>
+          Already have an acoount? <Link href="/login">Login</Link>
         </p>
       </motion.div>
     </div>
   ) : null;
 }
 
-export default login;
+export default Signup;

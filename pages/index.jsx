@@ -37,35 +37,37 @@ export default function Home() {
   };
 
   return (
-    <MainLayout>
-      <div className="container" animate={{ scale: 1 }}>
-        <div className="home">
-          <div className="left">
-            <div className="types">
-              <h1 className="hero-type">Welcome to</h1>{" "}
-              <div className="color">
-                <h1 className="hero-type-main-color">FikraFood</h1>
-                <h1>!</h1>
-              </div>
-              <p className="hero-type-p">
-                Start ordering meals weekly for only $5.99/week per dish!
-              </p>
-            </div>
-            <Button
-              onClick={goToProducts}
-              size={"large"}
-              className="cta"
-              type="primary"
-            >
-              Browse Meals
-              <ImSpoonKnife className="cta-icon" />
-            </Button>
-          </div>
+    <div className="index">
+      <img src={"/images/bg.svg"} className="hero-image" />
 
-          <div className="right">
-            <img src={"/images/blob.svg"} className="blob" />
-            <img src={"/images/hero.png"} className="hero-image" />
-            {/* <Carousel
+      <MainLayout>
+        <div className="container" animate={{ scale: 1 }}>
+          <div className="home">
+            <div className="left">
+              <div className="types">
+                <h1 className="hero-type">Welcome to</h1>{" "}
+                <div className="color">
+                  <h1 className="hero-type-main-color">FikraFood</h1>
+                  <h1>!</h1>
+                </div>
+                <p className="hero-type-p">
+                  Start ordering meals weekly for only $5.99/week per dish!
+                </p>
+              </div>
+              <Button
+                onClick={goToProducts}
+                size={"large"}
+                className="cta"
+                type="primary"
+              >
+                Browse Meals
+                <ImSpoonKnife className="cta-icon" />
+              </Button>
+            </div>
+
+            <div className="right">
+              {/* <img src={"/images/blob.svg"} className="blob" /> */}
+              {/* <Carousel
               showThumbs={false}
               showIndicators={false}
               autoplay={true}
@@ -85,9 +87,10 @@ export default function Home() {
                   );
                 })}
             </Carousel> */}
+            </div>
           </div>
         </div>
-      </div>
-    </MainLayout>
+      </MainLayout>
+    </div>
   );
 }
