@@ -1,3 +1,3 @@
 export const config = {
-  URL: "https://prisma-shop.herokuapp.com/v1",
+  URL: "https://prisma-food.herokuapp.com/v1",
 };

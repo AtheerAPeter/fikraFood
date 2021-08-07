@@ -24,9 +24,7 @@ export default function Products() {
       setLoading(true);
       setPage(page);
       const res = await fetch(
-        `https://prisma-shop.herokuapp.com/v1/productAll?p=${page}&s=10${
-          !!q.length ? "&q=" + q : ""
-        }`
+        `${config.URL}/productAll?p=${page}&s=10${!!q.length ? "&q=" + q : ""}`
       );
 
       const data = await res.json();

@@ -6,6 +6,7 @@ import router from "next/router";
 import { useState, useEffect } from "react";
 import BackBtn from "../components/BackBtn";
 import { config } from "../config";
+import { FaHamburger } from "react-icons/fa";
 function login() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
@@ -49,6 +50,21 @@ function login() {
   };
   return !isLoggedIn ? (
     <div className="login">
+      <div
+        style={{
+          position: "absolute",
+          top: "10px",
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}
+      >
+        <Link href="/">
+          <div className="logo">
+            <FaHamburger className="logo-icon" />
+            <h1>FikraFood</h1>
+          </div>
+        </Link>
+      </div>
       <BackBtn />
       <div className="underlay">
         <motion.img
@@ -108,7 +124,7 @@ function login() {
               },
             ]}
           >
-            <Input size="large" placeholder="john@example.com" />
+            <Input size="large" />
           </Form.Item>
           <p>Password</p>
           <Form.Item

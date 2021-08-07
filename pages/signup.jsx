@@ -6,6 +6,7 @@ import router from "next/router";
 import { useState, useEffect } from "react";
 import BackBtn from "../components/BackBtn";
 import { config } from "../config";
+import { FaHamburger } from "react-icons/fa";
 
 function Signup() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -51,6 +52,21 @@ function Signup() {
   };
   return !isLoggedIn ? (
     <div className="login">
+      <div
+        style={{
+          position: "absolute",
+          top: "10px",
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}
+      >
+        <Link href="/">
+          <div className="logo">
+            <FaHamburger className="logo-icon" />
+            <h1>FikraFood</h1>
+          </div>
+        </Link>
+      </div>
       <BackBtn />
       <div className="underlay">
         <motion.img
@@ -100,7 +116,7 @@ function Signup() {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
-          <p>Username</p>
+          <p className="label">Username</p>
           <Form.Item
             name="name"
             rules={[
@@ -110,9 +126,9 @@ function Signup() {
               },
             ]}
           >
-            <Input size="large" placeholder="john doe" />
+            <Input size="large" />
           </Form.Item>
-          <p>Email</p>
+          <p className="label">Email</p>
           <Form.Item
             name="email"
             rules={[
@@ -122,9 +138,9 @@ function Signup() {
               },
             ]}
           >
-            <Input size="large" placeholder="john@example.com" />
+            <Input size="large" />
           </Form.Item>
-          <p>Password</p>
+          <p className="label">Password</p>
           <Form.Item
             name="password"
             rules={[
